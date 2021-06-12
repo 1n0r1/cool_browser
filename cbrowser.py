@@ -41,7 +41,7 @@ def set_name():
     }]
 
 class CoolBrowser(cli.Application):
-    VERSION = "1.3"
+    VERSION = "2"
 
     def main(self):
         current_path = pathlib.Path(expanduser("~"))
