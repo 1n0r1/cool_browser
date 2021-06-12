@@ -1,9 +1,11 @@
 from pyfiglet import Figlet
 from plumbum import cli
 from questionary import prompt
+from os.path import expanduser
 import pathlib
 import os, sys
 import subprocess
+
 def print_banner(text):
     print(Figlet(font='slant').renderText(text))
 
@@ -15,18 +17,19 @@ def get_files(path):
 def generate_choices(files):
     a = []
     a.append({'name': "Exit"})
+    a.append({'name': "Change directory to current..."})
     a.append({'name': "..."})
-    a.append({'name': "Create New Folder..."})
-    a.append({'name': "Create New File..."})
+    a.append({'name': "Create new folder..."})
+    a.append({'name': "Create new file..."})
     for file in files:
         a.append({'name': file.strip()})
     return a
 
-def generate_question(files):
+def generate_question(files, t):
     return [{
         'type': 'select',
         'name': 'files',
-        'message': '',
+        'message': str(t),
         'choices': generate_choices(files)
     }]
 
@@ -41,26 +44,29 @@ class CoolBrowser(cli.Application):
     VERSION = "1.3"
 
     def main(self):
-        current_path = pathlib.Path(__file__).parent.absolute()
+        current_path = pathlib.Path(expanduser("~"))
 
         print_banner("Cool Browser")
-        print(current_path)
         while (True):
             files = get_files(current_path)
-            question = generate_question(files)
+            question = generate_question(files, current_path)
             answers = prompt(question)
             ans = answers['files']
             if (ans == "Exit"):
                 return 0
+            if (ans == "Change directory to current..."):
+                os.chdir(current_path)
+                os.system("pwd")
+                os.system("/bin/bash")
             if (ans == "..."):
                 current_path = current_path.parent.absolute()
                 continue
-            if (ans == "Create New Folder..."):
+            if (ans == "Create new folder..."):
                 name = set_name()
                 nname = prompt(name)
                 os.mkdir(pathlib.Path(str(current_path) + "/" + nname['files']))
                 continue
-            if (ans == "Create New File..."):
+            if (ans == "Create new file..."):
                 name = set_name()
                 nname = prompt(name)
                 pathlib.Path(str(current_path) + "/" + nname['files']).touch()
