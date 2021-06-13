@@ -9,6 +9,8 @@ Select "Create new folder..." and enter the name to instantly create a new folde
 
 Select "Create new file..." and enter the name to instantly create a new file
 
+Select "Search..." and enter the name to search through the directory for matching name. Search will ignore uppercase.
+
 ## Flags
 `h` , `--help` : Help
 
