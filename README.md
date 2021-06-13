@@ -10,7 +10,10 @@ Select "Create New Folder..." and enter the name to instantly create a new folde
 Select "Create New File..." and enter the name to instantly create a new file
 
 ## Flags
-'h' , '--help' : Help
-'v', '--version': Version
-'--cd' : Also cd to current dir when you exit
-'--home' : Start browser at home directory
+`h` , `--help` : Help
+
+`v`, `--version`: Version
+
+`--cd` : Also cd to current dir when you exit
+
+`--home` : Start browser at home directory
