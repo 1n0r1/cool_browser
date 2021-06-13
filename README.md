@@ -5,9 +5,9 @@ Select a folder to go into that directory
 
 Select "..." to go up a directory
 
-Select "Create New Folder..." and enter the name to instantly create a new folder
+Select "Create new folder..." and enter the name to instantly create a new folder
 
-Select "Create New File..." and enter the name to instantly create a new file
+Select "Create new file..." and enter the name to instantly create a new file
 
 ## Flags
 `h` , `--help` : Help
