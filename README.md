@@ -12,7 +12,7 @@ Select "Create New File..." and enter the name to instantly create a new file
 ## Flags
 `h` , `--help` : Help
 
-`v`, `--version`: Version
+`v`, `--version` : Version
 
 `--cd` : Also cd to current dir when you exit
 
