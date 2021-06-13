@@ -17,3 +17,6 @@ Select "Create new file..." and enter the name to instantly create a new file
 `--cd` : Also cd to current dir when you exit
 
 `--home` : Start browser at home directory
+
+## Demo
+![Demo](https://media.giphy.com/media/qRPL9wxwBRgh9uQLPU/giphy.gif)
